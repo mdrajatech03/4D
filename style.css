@@ -119,11 +119,14 @@ span {
 }
 
 section {
-    padding: 10px 10%;
+    padding: 60px 10%;
+    min-height: auto !important;
 }
 
 .home {
-    min-height: 100vh;
+    min-height: auto;
+    padding-top: 150px;
+    padding-bottom: 50px;
     height: 100%;
     width: 100%;
     display: grid;
@@ -261,7 +264,7 @@ section {
 }
 
 .social-icons {
-    margin-top: 3rem;
+    margin-top: 2rem;
     display: flex;
     justify-content: space-between;
     width: 220px;
