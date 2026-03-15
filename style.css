@@ -997,70 +997,64 @@ footer a i {
     }
 }
 
-/* --- Mobile Overlap Fix Start --- */
 @media(max-width:768px) {
     header {
         padding: 12px 5%;
-        background: var(--bg-color); /* Background solid rakhein taaki text overlap na dikhe */
+        background: var(--bg-color);
     }
 
+    /* Section padding fix */
     section {
         padding: 50px 5% !important; 
     }
 
     .home {
-        padding-top: 140px !important; /* Logo aur Hero text ke beech gap badhane ke liye */
-        grid-template-columns: 1fr !important; /* 2 columns ko 1 column mein badla */
+        padding-top: 140px !important; 
+        display: flex !important; /* Grid ki jagah Flex use karein visibility ke liye */
+        flex-direction: column !important; 
+        align-items: center;
         text-align: center;
+        height: auto !important;
+        min-height: 100vh;
         gap: 2rem;
-        min-height: auto;
-    }
-
-    .home-content {
-        order: 2; /* Text ko image ke neeche laane ke liye */
-        max-width: 100%;
     }
 
     .home-image {
-        order: 1; /* Image ko upar laane ke liye */
-        margin-bottom: 1rem;
+        display: block !important; /* Ensure image container is visible */
+        order: 1; 
+        width: 100%;
+        text-align: center;
+    }
+
+    .img-box img {
+        width: 100%;
+        max-width: 250px; /* Mobile ke liye perfect size */
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .home-content {
+        order: 2; 
+        width: 100%;
     }
 
     .home-content h1 {
-        font-size: 2rem !important; /* Font size chota kiya taaki screen par fit aaye */
-        margin-top: 10px;
+        font-size: 2rem !important;
+        margin-top: 15px;
     }
 
+    /* Buttons overlap na karein isliye vertical stack */
     .btn-box {
-        margin: 20px auto; /* Buttons ko center karne ke liye */
-    }
-
-    .social-icons {
-        justify-content: center;
-        margin: 1.5rem auto;
-    }
-
-    .navlist {
+        margin: 20px auto;
         display: flex;
-        position: absolute;
-        top: -1000px;
-        right: 0;
-        left: 0;
-        flex-direction: column;
-        background: var(--bg-color);
-        padding: 0 5%;
-        transition: all .45s ease;
-    }
-
-    .navlist.open {
-        top: 100%;
-    }
-
-    #menu-icon {
-        display: block;
+        flex-direction: row; 
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
     }
 }
-/* --- Mobile Overlap Fix End --- */
+
 
 @media(max-width:420px) {
     html {
