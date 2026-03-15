@@ -35,8 +35,8 @@ Welcome to my personal portfolio repository! This project showcases my skills, p
 ## 🚀 How to Run Locally
 
 **1. Clone the repository:**
-   
-   git clone https://github.com/mdrajatech03/Portfolio.git
+
+git clone https://github.com/mdrajatech03/Portfolio.git
    
 
 **2. Navigate to the folder:**
@@ -53,19 +53,19 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 **GitHub :**  @mdrajatech03
 
-**Live Demo :**  [Click here to view][https://mdrajatech03.github.io/Portfolio/]
+**Live Demo :**  [Click here to view](https://mdrajatech03.github.io/Portfolio/)
 
 
 ## Screenshot 
 
 **Desktop Mode**
 
-![Screenshot][portfolio1.jpg]
+![Screenshot](portfolio1.jpg)
 
-![Screenshot][portfolio2.jpg]
+![Screenshot](portfolio2.jpg)
 
 **Mobile Mode**
 
-![Screenshot][portfolio3.jpg]
+![Screenshot](portfolio3.jpg)
 
-![Screenshot][portfolio4.jpg]
+![Screenshot](portfolio4.jpg)
