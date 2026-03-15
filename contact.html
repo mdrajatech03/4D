@@ -160,7 +160,7 @@
                 </div>
                 <div class="info-item">
                     <i class="fas fa-phone-alt"></i>
-                    <p>+91 XXXXXXXXXX</p>
+                    <p>+91 7780021090</p>
                 </div>
                 <div class="info-item">
                     <i class="fas fa-map-marker-alt"></i>
@@ -173,28 +173,30 @@
 
         <div class="contact-form">
             <h2>Let's <span>Connect!</span></h2>
-            <form id="my-form">
-                <div class="input-group">
-                    <div class="input-box">
-                        <input type="text" placeholder="Full Name" required>
-                    </div>
-                    <div class="input-box">
-                        <input type="email" placeholder="Email Address" required>
-                    </div>
-                </div>
-                <div class="input-group" style="grid-template-columns: 1fr;">
-                    <div class="input-box">
-                        <input type="text" placeholder="Subject">
-                    </div>
-                    <div class="input-box">
-                        <textarea placeholder="Tell me about your project..."></textarea>
-                    </div>
-                </div>
-                <button type="submit" class="submit-btn">
-                    Send Message <i class="fas fa-paper-plane"></i>
-                </button>
-                <a href="index.html" class="back-home">← Back to Portfolio</a>
+            
+            <form action="https://formspree.io/f/mreyakab" method="POST" id="my-form">
+    <div class="input-group">
+        <div class="input-box">
+            <input type="text" name="Full Name" placeholder="Full Name" required>
+        </div>
+        <div class="input-box">
+            <input type="email" name="Email" placeholder="Email Address" required>
+        </div>
+    </div>
+    <div class="input-group" style="grid-template-columns: 1fr;">
+        <div class="input-box">
+            <input type="text" name="Subject" placeholder="Subject">
+        </div>
+        <div class="input-box">
+            <textarea name="Message" placeholder="Tell me about your project..." required></textarea>
+        </div>
+    </div>
+    <button type="submit" class="submit-btn">
+        Send Message <i class="fas fa-paper-plane"></i>
+    </button>
+    <a href="index.html" class="back-home">← Back to Portfolio</a>
             </form>
+            
         </div>
     </div>
 
