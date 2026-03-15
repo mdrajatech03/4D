@@ -6,105 +6,163 @@
     <title>Project Details | Md Raja</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        /* Import Poppins Font */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        /* Global Styles */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background: #081b29; color: #fff; line-height: 1.6; }
 
+        /* Project Header Styles */
         .project-header {
             height: 40vh;
-            background: linear-gradient(rgba(0, 171, 240, 0.3), #081b29), url('image1.png');
+            /* Placeholder path for professional image. 
+               Is file ko apne GitHub repo mein upload zaroori karein. */
+            background: linear-gradient(rgba(0, 171, 240, 0.3), #081b29), url('iot_car_bg.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            border-bottom: 2px solid #00abf0;
         }
 
-        .container { padding: 50px 10%; }
-        .back-link { color: #00abf0; text-decoration: none; font-weight: 600; margin-bottom: 20px; display: inline-block; }
+        .header-content { z-index: 2; }
+        .header-content h1 { font-size: 40px; color: #00abf0; margin-bottom: 10px; text-shadow: 0 0 10px #00abf0; }
+        .header-content p { font-size: 18px; color: #ededed; }
+
+        /* Container Styles */
+        .container { padding: 50px 10%; position: relative; }
+
+        /* Back to Portfolio Link */
+        .back-link { 
+            color: #00abf0; 
+            text-decoration: none; 
+            font-weight: 600; 
+            margin-bottom: 30px; 
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+        }
+        .back-link:hover { text-shadow: 0 0 10px #00abf0; color: #fff; }
         
-        h1 { font-size: 40px; color: #00abf0; margin-bottom: 10px; }
-        .tech-stack { margin-bottom: 30px; }
-        .badge {
-            background: rgba(0, 171, 240, 0.2);
-            color: #00abf0;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            margin-right: 10px;
-            border: 1px solid #00abf0;
+        /* Overlapping Fix for Tech Stack Buttons */
+        .tech-buttons {
+            display: flex; /* Flexbox enables buttons to flow naturally */
+            flex-wrap: wrap; /* Wraps buttons to the next line on small screens */
+            gap: 12px; /* Adds consistent spacing between buttons */
+            margin-bottom: 40px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0, 171, 240, 0.2);
         }
 
+        .badge {
+            background: transparent;
+            color: #00abf0;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid #00abf0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 5px rgba(0, 171, 240, 0.2);
+            transition: 0.3s ease;
+        }
+
+        .badge:hover {
+            background: #00abf0;
+            color: #081b29;
+            box-shadow: 0 0 15px #00abf0;
+        }
+
+        /* Content Styles */
         .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
-        .description h2 { color: #00abf0; margin-bottom: 15px; }
-        .description p { color: #ccc; margin-bottom: 20px; text-align: justify; }
+        .description h2 { color: #00abf0; margin-bottom: 20px; font-size: 28px; border-left: 5px solid #00abf0; padding-left: 15px; }
+        .description p { color: #ededed; margin-bottom: 25px; text-align: justify; font-size: 16px; opacity: 0.9; }
 
         .project-links {
             background: rgba(255, 255, 255, 0.05);
-            padding: 30px;
-            border-radius: 15px;
+            padding: 35px;
+            border-radius: 20px;
             border: 1px solid rgba(0, 171, 240, 0.2);
             height: fit-content;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         }
+        
+        .project-links h3 { color: #fff; margin-bottom: 20px; font-size: 22px; }
 
         .btn {
             display: block;
             width: 100%;
-            padding: 12px;
+            padding: 15px;
             background: #00abf0;
             color: #081b29;
             text-align: center;
             text-decoration: none;
             font-weight: 700;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            transition: 0.3s;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .btn:hover { box-shadow: 0 0 20px #00abf0; }
+        .btn:hover { box-shadow: 0 0 25px #00abf0; transform: translateY(-3px); }
         .btn-outline { background: transparent; color: #00abf0; border: 2px solid #00abf0; }
+        .btn-outline:hover { background: #00abf0; color: #081b29; }
 
-        @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr; } }
+        /* Responsive Design for smaller screens */
+        @media (max-width: 900px) { .content-grid { grid-template-columns: 1fr; } .project-links { margin-top: 30px; } }
+        @media (max-width: 600px) { .header-content h1 { font-size: 32px; } .badge { font-size: 12px; padding: 6px 14px; } }
     </style>
 </head>
 <body>
 
     <header class="project-header">
-        <div>
+        <div class="header-content">
             <h1>Bluetooth Controlled Car</h1>
-            <p>Robotics & IoT Project</p>
+            <p>Robotics & IoT Case Study</p>
         </div>
     </header>
 
     <div class="container">
         <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
 
-        <div class="tech-stack">
-            <span class="badge">Arduino</span>
-            <span class="badge">C++</span>
-            <span class="badge">HC-05 Bluetooth</span>
-            <span class="badge">Embedded Systems</span>
+        <div class="tech-buttons">
+            <div class="badge">Arduino</div>
+            <div class="badge">C++</div>
+            <div class="badge">HC-05</div>
+            <div class="badge">Bluetooth</div>
+            <div class="badge">Embedded Systems</div>
+            <div class="badge">Robotics</div>
         </div>
 
         <div class="content-grid">
             <div class="description">
                 <h2>Project Overview</h2>
-                <p>This project is a Bluetooth-controlled robot car designed using Arduino. It allows users to control the car's movement (Forward, Backward, Left, Right) wirelessly through a smartphone application. It uses an HC-05 Bluetooth module for communication and an L298N motor driver to control the DC motors.</p>
+                <p>This project is a Bluetooth-controlled robot car designed and developed using the <strong>Arduino Uno</strong> microcontroller. The central objective was to create a mobile-based wireless control system that allows users to seamlessly navigate the car's movement—Forward, Backward, Left, and Right—without physical tethering.</p>
+                <p>The system utilizes the <strong>HC-05 Bluetooth module</strong> for two-way communication with a smartphone application, processing real-time control signals. To manage the physical components, an L298N motor driver was implemented to effectively handle power delivery to the dual DC motors. This project served as a comprehensive exploration of both embedded software development and hardware integration protocols.</p>
                 
-                <h2>Key Features</h2>
-                <ul style="margin-left: 20px; color: #ccc;">
-                    <li>Wireless range of up to 10 meters.</li>
-                    <li>Real-time response with zero latency.</li>
-                    <li>Dual speed control modes.</li>
-                    <li>Obstacle detection capability (optional upgrade).</li>
+                <h2>Key Deliverables</h2>
+                <ul style="margin-left: 20px; color: #ededed; opacity: 0.9; margin-bottom: 20px;">
+                    <li>Achieved a stable 10-meter wireless control range.</li>
+                    <li>Designed a low-latency signal processing logic for real-time response.</li>
+                    <li>Implemented battery-efficient power routing for extended runtime.</li>
+                    <li>Prototyped a scalable framework for future sensor integration (e.g., obstacle avoidance).</li>
                 </ul>
             </div>
 
             <div class="project-links">
                 <h3>Project Resources</h3>
-                <p style="font-size: 14px; color: #888; margin-bottom: 20px;">Get the source code and documentation.</p>
-                <a href="#" class="btn">View Github Repo</a>
-                <a href="#" class="btn btn-outline">Watch Demo Video</a>
+                <p style="font-size: 14px; color: #888; margin-bottom: 25px;">Review the implementation details, source code, and a practical demonstration.</p>
+                <a href="#" class="btn" target="_blank">
+                   <i class="fab fa-github"></i> View Github Repo
+                </a>
+                <a href="#" class="btn btn-outline" target="_blank">
+                   <i class="fas fa-play-circle"></i> Watch Demo Video
+                </a>
             </div>
         </div>
     </div>
