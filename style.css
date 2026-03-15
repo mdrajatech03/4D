@@ -997,6 +997,25 @@ footer a i {
 }
 
 @media(max-width:768px) {
+
+    header {
+        padding: 12px 5%;
+    }
+
+
+    section {
+        padding: 50px 5% !important; 
+    }
+
+    .home {
+        padding-top: 80px !important; 
+        min-height: auto !important;
+        gap: 1rem; 
+
+          .home-content {
+        margin-top: 0;
+          }
+    }
     #menu-icon {
         display: block;
         transition: all .4s ease;
@@ -1036,7 +1055,7 @@ footer a i {
     }
 
     .home-image {
-        margin-top: 1rem;
+        margin-top: 0rem;
         margin-bottom: 2rem;
     }
 
