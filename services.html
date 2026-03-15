@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Md Raja</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: #081b29; color: #fff; line-height: 1.6; }
+
+        .container { padding: 60px 10%; }
+        .header { text-align: center; margin-bottom: 50px; }
+        .header h1 { font-size: 40px; color: #00abf0; }
+        .header span { color: #fff; }
+
+        /* Service Tabs */
+        .tabs { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 40px; }
+        .tab-btn {
+            padding: 10px 25px;
+            background: transparent;
+            border: 2px solid #00abf0;
+            color: #00abf0;
+            cursor: pointer;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .tab-btn.active, .tab-btn:hover { background: #00abf0; color: #081b29; box-shadow: 0 0 15px #00abf0; }
+
+        /* Content Section */
+        .service-content {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 171, 240, 0.3);
+            animation: fadeIn 0.5s ease;
+        }
+        .service-content.active { display: block; }
+
+        .service-header { display: flex; align-items: center; gap: 20px; margin-bottom: 25px; }
+        .service-header i { font-size: 50px; color: #00abf0; }
+        .service-header h2 { font-size: 32px; }
+
+        .details-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px; }
+        .detail-box h4 { color: #00abf0; margin-bottom: 10px; font-size: 20px; border-bottom: 1px solid #333; padding-bottom: 5px; }
+        .detail-box ul { list-style: none; }
+        .detail-box ul li { margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
+        .detail-box ul li i { color: #00ff88; font-size: 14px; }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 30px;
+            color: #00abf0;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 768px) { .details-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Service <span>Details</span></h1>
+        <p>Expertise and solutions I provide for your business growth.</p>
+    </div>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openService(event, 'graphic')">Graphic Design</button>
+        <button class="tab-btn" onclick="openService(event, 'java')">Java Dev</button>
+        <button class="tab-btn" onclick="openService(event, 'frontend')">Front-End</button>
+        <button class="tab-btn" onclick="openService(event, 'backend')">Back-End</button>
+    </div>
+
+    <div id="graphic" class="service-content active">
+        <div class="service-header">
+            <i class="fas fa-layer-group"></i>
+            <h2>Graphic Designer</h2>
+        </div>
+        <p>Visual storytelling is key to brand identity. I create high-impact designs that communicate ideas effectively through digital and print media.</p>
+        <div class="details-grid">
+            <div class="detail-box">
+                <h4>What I Offer</h4>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Branding & Logo Design</li>
+                    <li><i class="fas fa-check-circle"></i> UI/UX Visual Prototypes</li>
+                    <li><i class="fas fa-check-circle"></i> Social Media Graphics</li>
+                </ul>
+            </div>
+            <div class="detail-box">
+                <h4>Tools I Use</h4>
+                <p>Adobe Photoshop, Illustrator, Canva, Figma.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="java" class="service-content">
+        <div class="service-header">
+            <i class="fab fa-java"></i>
+            <h2>Java Developer</h2>
+        </div>
+        <p>I build robust and scalable enterprise-level applications using the power of Java and its ecosystem.</p>
+        <div class="details-grid">
+            <div class="detail-box">
+                <h4>Technical Expertise</h4>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Object-Oriented Programming</li>
+                    <li><i class="fas fa-check-circle"></i> Spring Boot & Hibernate</li>
+                    <li><i class="fas fa-check-circle"></i> Multi-threading & APIs</li>
+                </ul>
+            </div>
+            <div class="detail-box">
+                <h4>Development Focus</h4>
+                <p>Performance optimization, clean code architecture, and high-security standards.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="frontend" class="service-content">
+        <div class="service-header">
+            <i class="fas fa-desktop"></i>
+            <h2>Front-End Developer</h2>
+        </div>
+        <p>Creating responsive, user-friendly interfaces that provide a seamless experience across all devices.</p>
+        <div class="details-grid">
+            <div class="detail-box">
+                <h4>Frontend Stack</h4>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> HTML5 & Modern CSS3</li>
+                    <li><i class="fas fa-check-circle"></i> React.js / Vue.js</li>
+                    <li><i class="fas fa-check-circle"></i> Responsive Frameworks (Bootstrap/Tailwind)</li>
+                </ul>
+            </div>
+            <div class="detail-box">
+                <h4>User Experience</h4>
+                <p>Focusing on page speed, interactive animations, and accessibility.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="backend" class="service-content">
+        <div class="service-header">
+            <i class="fas fa-server"></i>
+            <h2>Back-End Developer</h2>
+        </div>
+        <p>Powering the web with secure server-side logic and efficient database management systems.</p>
+        <div class="details-grid">
+            <div class="detail-box">
+                <h4>Backend Stack</h4>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Node.js & Express</li>
+                    <li><i class="fas fa-check-circle"></i> Database (MySQL / MongoDB)</li>
+                    <li><i class="fas fa-check-circle"></i> RESTful API Development</li>
+                </ul>
+            </div>
+            <div class="detail-box">
+                <h4>Security</h4>
+                <p>JWT Authentication, Data Encryption, and Server Management.</p>
+            </div>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+</div>
+
+<script>
+    function openService(evt, serviceName) {
+        var i, content, tablinks;
+        content = document.getElementsByClassName("service-content");
+        for (i = 0; i < content.length; i++) {
+            content[i].classList.remove("active");
+        }
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].classList.remove("active");
+        }
+        document.getElementById(serviceName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+</script>
+
+</body>
+</html>
