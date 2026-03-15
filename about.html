@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Md Raja</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #081b29; /* Deep Blue Background */
+            color: #ededed;
+            overflow-x: hidden;
+        }
+
+        .about-page {
+            padding: 60px 10%;
+            min-height: 100vh;
+        }
+
+        .header-text {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .header-text h2 {
+            font-size: 45px;
+            color: #00abf0; /* Neon Blue */
+        }
+
+        .header-text span {
+            color: #fff;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 50px;
+        }
+
+        /* Skills Section */
+        .skills-section h3 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            color: #fff;
+            border-left: 5px solid #00abf0;
+            padding-left: 15px;
+        }
+
+        .skill-box { margin-bottom: 20px; }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 171, 240, 0.2);
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: #00abf0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #00abf0;
+        }
+
+        /* Info & Actions */
+        .info-card {
+            background: rgba(0, 171, 240, 0.05);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 171, 240, 0.2);
+        }
+
+        .info-card h4 { color: #00abf0; margin-bottom: 10px; font-size: 20px; }
+
+        .action-btns {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-download {
+            background: #00abf0;
+            color: #081b29;
+            box-shadow: 0 0 15px rgba(0, 171, 240, 0.4);
+        }
+
+        .btn-download:hover { box-shadow: 0 0 25px #00abf0; transform: scale(1.05); }
+
+        /* Social Icons */
+        .social-links {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #00abf0;
+            border-radius: 50%;
+            color: #00abf0;
+            font-size: 20px;
+            transition: 0.4s;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: #00abf0;
+            color: #081b29;
+            box-shadow: 0 0 15px #00abf0;
+        }
+
+        .back-home {
+            margin-top: 20px;
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-home:hover { color: #00abf0; }
+
+        @media (max-width: 900px) {
+            .container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="about-page">
+        <div class="header-text">
+            <h2>Who is <span>Md Raja?</span></h2>
+        </div>
+
+        <div class="container">
+            <div class="info-card">
+                <h4>Computer Science Engineer</h4>
+                <p>B.Tech Graduate from Sharda University. Specialist in creating interactive UI and robust software solutions. My approach combines technical precision with creative design.</p>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+
+                <div class="action-btns">
+                    <a href="resume.pdf" class="btn btn-download" download>
+                        <i class="fas fa-download"></i> Download CV
+                    </a>
+                </div>
+
+                <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Main Portfolio</a>
+            </div>
+
+            <div class="skills-section">
+                <h3>Expertise</h3>
+
+                <div class="skill-box">
+                    <div class="skill-info"><span>Web Development</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                </div>
+
+                <div class="skill-box">
+                    <div class="skill-info"><span>Graphic Design</span><span>85%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                </div>
+
+                <div class="skill-box">
+                    <div class="skill-info"><span>Python & Java</span><span>80%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                </div>
+
+                <div class="skill-box">
+                    <div class="skill-info"><span>UI/UX Design</span><span>75%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
