@@ -1003,55 +1003,75 @@ footer a i {
         background: var(--bg-color);
     }
 
-    /* Section padding fix */
     section {
         padding: 50px 5% !important; 
     }
 
+    /* Home Section Layout */
     .home {
         padding-top: 140px !important; 
-        display: flex !important; /* Grid ki jagah Flex use karein visibility ke liye */
+        display: flex !important; 
         flex-direction: column !important; 
-        align-items: center;
-        text-align: center;
+        align-items: center !important;
+        text-align: center !important;
         height: auto !important;
         min-height: 100vh;
         gap: 2rem;
     }
 
-    .home-image {
-        display: block !important; /* Ensure image container is visible */
-        order: 1; 
-        width: 100%;
-        text-align: center;
+    /* Image Container Fix */
+    .home-image, .home-img, .img-box {
+        display: block !important; 
+        order: 1 !important; 
+        width: 100% !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
-    .img-box img {
-        width: 100%;
-        max-width: 250px; /* Mobile ke liye perfect size */
-        height: auto;
-        display: block;
-        margin: 0 auto;
+    /* Actual Image Fix */
+    .home-image img, .home-img img, .img-box img {
+        width: 100% !important;
+        max-width: 280px !important; 
+        height: auto !important;
+        display: block !important;
+        margin: 0 auto !important;
     }
 
+    /* Text Content Fix */
     .home-content {
-        order: 2; 
-        width: 100%;
+        order: 2 !important; 
+        width: 100% !important;
     }
 
     .home-content h1 {
-        font-size: 2rem !important;
-        margin-top: 15px;
+        font-size: 2.2rem !important;
+        line-height: 1.2;
     }
 
-    /* Buttons overlap na karein isliye vertical stack */
     .btn-box {
-        margin: 20px auto;
-        display: flex;
-        flex-direction: row; 
+        margin: 25px auto;
         justify-content: center;
-        gap: 10px;
         width: 100%;
+    }
+
+    /* Menu Fix */
+    .navlist {
+        position: absolute;
+        top: -1000px;
+        left: 0;
+        width: 100%;
+        background: var(--bg-color);
+        flex-direction: column;
+        padding: 20px 5%;
+        transition: 0.4s;
+    }
+
+    .navlist.open {
+        top: 100%;
+    }
+
+    #menu-icon {
+        display: block;
     }
 }
 
