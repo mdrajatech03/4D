@@ -501,19 +501,19 @@
         
 
         <form id="my-form" class="scroll-bottom">
-    <div class="input-box">
-        <input type="text" name="from_name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-    </div>
-    <div class="input-box">
-        <input type="text" name="address" placeholder="Your Address">
-        <input type="number" name="phone" placeholder="Phone Number">
-    </div>
-    <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
-    
-    <div class="btn-box">
-        <button type="submit" class="btn">Send Message</button>
-    </div>
+        <div class="input-box">
+            <input type="text" name="from_name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="input-box">
+            <input type="text" name="address" placeholder="Your Address">
+            <input type="number" name="phone" placeholder="Phone Number">
+        </div>
+        <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+        
+        <div class="btn-box">
+            <button type="submit" id="submit-btn" class="btn">Send Message</button>
+        </div>
         </form>
         
         
@@ -527,30 +527,39 @@
         <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
      </footer>
 
+
     
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 <script type="text/javascript">
 (function() {
+    // Apni Public Key initialize karein
     emailjs.init("GFinUe87kRtSrUttm");
 })();
 
-document.addEventListener('DOMContentLoaded', function() {
+window.onload = function() {
     const contactForm = document.getElementById('my-form');
-    
+    const btn = document.getElementById('submit-btn');
+
     if (contactForm) {
         contactForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Ye page reload hone se rokega
+            // Sabse zaroori: page reload rokna
+            event.preventDefault();
+
+            // Button text change karein loading dikhane ke liye
+            btn.innerText = 'Sending...';
+            btn.disabled = true;
 
             const serviceID = 'service_y6e8v7t';
             const adminTemplateID = 'template_5c2c9mn';
             const userTemplateID = 'template_ue7wa86';
 
-            console.log("Sending emails...");
-
-            // 1. Raja ko mail bhejein
+            // 1. Raja ko email bhejein (Admin Notification)
             emailjs.sendForm(serviceID, adminTemplateID, this)
                 .then(function() {
-                    console.log("Admin email sent!");
-                    // 2. User ko reply bhejein
+                    console.log("Admin email success!");
+                    // 2. User ko auto-reply bhejein
                     return emailjs.sendForm(serviceID, userTemplateID, contactForm);
                 })
                 .then(function() {
@@ -558,13 +567,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     contactForm.reset();
                 })
                 .catch(function(error) {
-                    alert('Error: ' + JSON.stringify(error));
+                    alert('Error occurred: ' + JSON.stringify(error));
+                })
+                .finally(function() {
+                    // Button wapas normal karein
+                    btn.innerText = 'Send Message';
+                    btn.disabled = false;
                 });
         });
+    } else {
+        console.error("Form with ID 'my-form' not found!");
     }
-});
+};
 </script>
-    
     
     
     
