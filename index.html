@@ -498,16 +498,25 @@
             <h2>Contact Me</h2>
         </div>
         
+        
+
         <form id="my-form" class="scroll-bottom">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <input type="text" name="address" placeholder="Your Address">
-    <input type="number" name="phone" placeholder="Phone Number">
-    <textarea name="message" cols="30" rows="10" required placeholder="Your Message"></textarea>
-    <div class="btn-box formBtn">
+    <div class="input-box">
+        <input type="text" name="from_name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+    </div>
+    <div class="input-box">
+        <input type="text" name="address" placeholder="Your Address">
+        <input type="number" name="phone" placeholder="Phone Number">
+    </div>
+    <textarea name="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+    
+    <div class="btn-box">
         <button type="submit" class="btn">Send Message</button>
     </div>
         </form>
+        
+        
         
     </section>
 
@@ -523,39 +532,32 @@
 
 <script type="text/javascript">
 (function() {
-    // Apni Public Key yahan dalein (Account -> API Keys se milegi)
+    // Aapki Public Key
     emailjs.init("GFinUe87kRtSrUttm"); 
 })();
 
 window.onload = function() {
-    const contactForm = document.getElementById('my-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Form refresh ko rokne ke liye
+    const form = document.getElementById('my-form');
+    if(form) {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
 
-            // Ye IDs aapke dashboard se li gayi hain
+            // Aapki Dashboard IDs
             const serviceID = 'service_s8paa0e';
             const templateID = 'template_5c2c9mn';
 
-            // Button text ko 'Sending...' mein badlein taaki user ko pata chale kaam ho raha hai
-            const btn = contactForm.querySelector('button');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = 'Sending...';
-
             emailjs.sendForm(serviceID, templateID, this)
                 .then(function() {
-                    alert('Success! Message bhej diya gaya hai aur Raja ko mil gaya.');
-                    btn.innerHTML = originalText; // Button wapis sahi karein
-                    contactForm.reset(); // Form clear karein
+                    alert('Success! Raja ko message mil gaya.');
+                    form.reset();
                 }, function(error) {
-                    alert('Failed... Error: ' + JSON.stringify(error));
-                    btn.innerHTML = originalText;
+                    alert('Error: ' + JSON.stringify(error));
                 });
         });
     }
-};
+}
 </script>
+    
     
     
 
