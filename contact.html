@@ -236,7 +236,7 @@ form.addEventListener("submit", function(event) {
             return emailjs.sendForm(serviceID, userTemplate, currentForm);
         })
         .then(() => {
-            alert("Thank you! Your message has been sent successfully.");
+            alert("Thank you! I have received your message and a confirmation email has been sent to you.");
             form.reset();
             btn.innerHTML = originalBtnContent;
         })
