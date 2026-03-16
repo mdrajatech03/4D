@@ -528,36 +528,45 @@
      </footer>
 
     
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
 <script type="text/javascript">
 (function() {
-    // Public Key
-    emailjs.init("GFinUe87kRtSrUttm"); 
+    // Aapki Public Key (Account Page se)
+    emailjs.init("GFinUe87kRtSrUttm");
 })();
 
-// Window onload ki jagah ye use karein taaki turant load ho
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('my-form');
-    if(form) {
+    
+    if (form) {
         form.addEventListener('submit', function(event) {
             event.preventDefault();
 
+            // Sahi IDs jo humne dashboard mein set ki hain
             const serviceID = 'service_y6e8v7t';
-            const templateID = 'template_5c2c9mn';
+            const adminTemplateID = 'template_5c2c9mn'; // Jisme Raja ko details milti hain
+            const userTemplateID = 'template_ue7wa86';  // Jisme User ko auto-reply jata hai
 
-            console.log("Sending..."); // Debugging ke liye
+            console.log("Processing emails...");
 
-            emailjs.sendForm(serviceID, templateID, this)
+            // 1. Pehle aapko email aayega (Admin Notification)
+            emailjs.sendForm(serviceID, adminTemplateID, this)
                 .then(function() {
-                    alert('Success! Raja ko message mil gaya.');
-                    form.reset();
-                }, function(error) {
+                    console.log("Admin email sent!");
+                    
+                    // 2. Jaise hi pehla mail successful ho, user ko reply bhejein
+                    return emailjs.sendForm(serviceID, userTemplateID, form);
+                })
+                .then(function() {
+                    alert('Success! Raja ko message mil gaya aur user ko response chala gaya.');
+                    form.reset(); // Form clear karne ke liye
+                })
+                .catch(function(error) {
                     alert('Error: ' + JSON.stringify(error));
+                    console.error('Failed to send email...', error);
                 });
         });
     } else {
-        console.log("Form ID 'my-form' nahi mili!");
+        console.log("Error: Form ID 'my-form' nahi mila!");
     }
 });
 </script>
