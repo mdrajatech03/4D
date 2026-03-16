@@ -1032,9 +1032,8 @@ footer a i {
         top: 100%;
     }
 
-    .home {
-        grid-template-columns: 1fr;
-    }
+
+    
 
     .home-image {
         margin-bottom: 5rem;
