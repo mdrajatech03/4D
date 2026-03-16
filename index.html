@@ -518,34 +518,45 @@
         <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
      </footer>
 
-
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
 <script type="text/javascript">
 (function() {
-    
+    // Apni Public Key yahan dalein (Account -> API Keys se milegi)
     emailjs.init("GFinUe87kRtSrUttm"); 
 })();
 
 window.onload = function() {
-    // Dhyan dein: aapke form ki ID 'my-form' honi chahiye
-    document.getElementById('my-form').addEventListener('submit', function(event) {
-        event.preventDefault();
+    const contactForm = document.getElementById('my-form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Form refresh ko rokne ke liye
 
-        const serviceID = 'service_s8paa0e';
-        const templateID = 'template_5c2c9mn';
+            // Ye IDs aapke dashboard se li gayi hain
+            const serviceID = 'service_s8paa0e';
+            const templateID = 'template_5c2c9mn';
 
-        emailjs.sendForm(serviceID, templateID, this)
-            .then(function() {
-                alert('Success! Raja ko message mil gaya aur aapko auto-reply bhej diya gaya hai.');
-                document.getElementById('my-form').reset();
-            }, function(error) {
-                alert('Failed... Error: ' + JSON.stringify(error));
-            });
-    });
-}
+            // Button text ko 'Sending...' mein badlein taaki user ko pata chale kaam ho raha hai
+            const btn = contactForm.querySelector('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = 'Sending...';
+
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(function() {
+                    alert('Success! Message bhej diya gaya hai aur Raja ko mil gaya.');
+                    btn.innerHTML = originalText; // Button wapis sahi karein
+                    contactForm.reset(); // Form clear karein
+                }, function(error) {
+                    alert('Failed... Error: ' + JSON.stringify(error));
+                    btn.innerHTML = originalText;
+                });
+        });
+    }
+};
 </script>
-
+    
     
 
     <script src="mixitup.min.js"></script>
